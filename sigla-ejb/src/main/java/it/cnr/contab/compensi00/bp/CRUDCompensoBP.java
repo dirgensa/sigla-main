@@ -19,12 +19,15 @@ package it.cnr.contab.compensi00.bp;
 
 import it.cnr.contab.anagraf00.tabrif.bulk.Tipo_rapportoBulk;
 import it.cnr.contab.chiusura00.ejb.RicercaDocContComponentSession;
+import it.cnr.contab.coepcoan00.bp.EconomicaAvereDetailCRUDController;
+import it.cnr.contab.coepcoan00.bp.EconomicaDareDetailCRUDController;
 import it.cnr.contab.compensi00.docs.bulk.*;
 import it.cnr.contab.compensi00.ejb.CompensoComponentSession;
 import it.cnr.contab.compensi00.tabrif.bulk.Tipo_trattamentoBulk;
 import it.cnr.contab.config00.bulk.CigBulk;
 import it.cnr.contab.config00.bulk.Configurazione_cnrBulk;
 import it.cnr.contab.config00.esercizio.bulk.EsercizioBulk;
+import it.cnr.contab.docamm00.bp.IDocAmmEconomicaBP;
 import it.cnr.contab.docamm00.bp.IDocumentoAmministrativoBP;
 import it.cnr.contab.docamm00.bp.IDocumentoAmministrativoSpesaBP;
 import it.cnr.contab.docamm00.docs.bulk.IDocumentoAmministrativoBulk;
@@ -52,6 +55,7 @@ import it.cnr.jada.bulk.ValidationException;
 import it.cnr.jada.comp.ApplicationException;
 import it.cnr.jada.comp.ComponentException;
 import it.cnr.jada.util.action.AbstractPrintBP;
+import it.cnr.jada.util.action.CollapsableDetailCRUDController;
 import it.cnr.jada.util.action.SimpleDetailCRUDController;
 
 import javax.ejb.EJBException;
@@ -66,7 +70,7 @@ import java.util.Optional;
  *
  * @author: Roberto Fantino
  */
-public class CRUDCompensoBP extends it.cnr.jada.util.action.SimpleCRUDBP implements IDefferedUpdateSaldiBP, IDocumentoAmministrativoSpesaBP, IValidaDocContBP {
+public class CRUDCompensoBP extends it.cnr.jada.util.action.SimpleCRUDBP implements IDefferedUpdateSaldiBP, IDocumentoAmministrativoSpesaBP, IValidaDocContBP, IDocAmmEconomicaBP {
     private final SimpleDetailCRUDController contributiCRUDController = new SimpleDetailCRUDController("contributiCRUDController", Contributo_ritenutaBulk.class, "contributi", this, false) {
         @Override
         public void writeHTMLToolbar(javax.servlet.jsp.PageContext context, boolean reset, boolean find, boolean delete, boolean closedToolbar) throws java.io.IOException, javax.servlet.ServletException {
@@ -118,6 +122,9 @@ public class CRUDCompensoBP extends it.cnr.jada.util.action.SimpleCRUDBP impleme
         }
     };
     private it.cnr.contab.doccont00.core.bulk.OptionRequestParameter userConfirm = null;
+    private final CollapsableDetailCRUDController movimentiDare = new EconomicaDareDetailCRUDController(this);
+    private final CollapsableDetailCRUDController movimentiAvere = new EconomicaAvereDetailCRUDController(this);
+
     //	Variabili usate per la gestione del "RIPORTA" documento ad esercizio precedente/successivo
     private boolean annoSolareInScrivania = true;
     private boolean riportaAvantiIndietro = false;
@@ -1255,8 +1262,8 @@ public class CRUDCompensoBP extends it.cnr.jada.util.action.SimpleCRUDBP impleme
      * Creation date: (22/02/2002 18.28.25)
      */
     public void resetTabs(ActionContext context) {
-
         setTab("tab", "tabCompenso");
+        setTab("tabEconomica", "tabDare");
     }
 
     /**
@@ -1785,4 +1792,13 @@ public class CRUDCompensoBP extends it.cnr.jada.util.action.SimpleCRUDBP impleme
                 })
                 .orElse(super.isInputReadonlyFieldName(fieldName));
     }
+
+    public CollapsableDetailCRUDController getMovimentiDare() {
+        return movimentiDare;
+    }
+
+    public CollapsableDetailCRUDController getMovimentiAvere() {
+        return movimentiAvere;
+    }
+
 }

@@ -52,6 +52,7 @@
 						{ "tabCompensoContributiRitenute","Contributi e Ritenute","/compensi00/tab_compenso_contributi_ritentute.jsp" },
 						{ "tabCompensoObbligazioni","Impegni","/compensi00/tab_compenso_obbligazioni.jsp" },
 						{ "tabCompensoDocumentiAssociati","Documenti Associati","/compensi00/tab_compenso_documenti_associati.jsp" },
+						{ "tabEconomica", "Economico/Patrimoniale", "/coepcoan00/tab_doc_economica.jsp" },
 					},
 					bp.getTab("tab"),
 					"center",

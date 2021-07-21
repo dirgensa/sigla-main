@@ -46,6 +46,7 @@ function doVisualizzaContabile() {
 								{ "tabDettaglioReversale","Dettaglio","/doccont00/tab_dettaglio_reversale.jsp" },
 								{ "tabSospesi","Sospesi","/doccont00/tab_reversale_sospesi.jsp" },
 								{ "tabMandati","Doc.Contabili associati","/doccont00/tab_reversale_mandati.jsp" },
+							    { "tabEconomica", "Economico/Patrimoniale", "/coepcoan00/tab_doc_economica.jsp" }
 								},
 						bp.getTab("tab"),
 						"center",
@@ -59,6 +60,7 @@ function doVisualizzaContabile() {
 								{ "tabDettaglioReversale","Dettaglio","/doccont00/tab_dettaglio_reversale.jsp" },
 								{ "tabSospesi","Sospesi","/doccont00/tab_reversale_sospesi.jsp" },
 								{ "tabMandati","Doc.Contabili associati","/doccont00/tab_reversale_mandati.jsp" },
+							    { "tabEconomica", "Economico/Patrimoniale", "/coepcoan00/tab_doc_economica.jsp" }
 								},
 						bp.getTab("tab"),
 						"center",

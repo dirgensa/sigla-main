@@ -58,6 +58,9 @@ public class Configurazione_cnrBulk extends Configurazione_cnrBase {
 	public final static String SK_VOCE_IVA_FATTURA_ESTERA = "VOCE_IVA_FATTURA_ESTERA";
 	public final static String SK_TEMPO_IND_SU_PROGETTI_FINANZIATI = "TEMPO_IND_SU_PROGETTI_FINANZIATI";
 
+	public final static String PK_BENE_SERVIZIO_SPECIALE = "BENE_SERVIZIO_SPECIALE";
+	public final static String SK_SCONTO_ABBUONO = "SCONTO_ABBUONO";
+
 	public final static String PK_CONTO_CORRENTE_SPECIALE = "CONTO_CORRENTE_SPECIALE";
 	public final static String SK_ENTE = "ENTE";
 	public final static String SK_BANCA_ITALIA = "BANCA_ITALIA";
@@ -144,6 +147,14 @@ public class Configurazione_cnrBulk extends Configurazione_cnrBase {
 
 	public final static String PK_BLOCCO_RESIDUI = "BLOCCO_RESIDUI";
 	public final static String SK_NATURA_FINANZIAMENTO = "NATURA_FINANZIAMENTO";
+
+	public final static String PK_CORI_SPECIALE = "CORI_SPECIALE";
+	public final static String SK_IVA = "IVA";
+
+	public final static String PK_VOCEEP_SPECIALE = "VOCEEP_SPECIALE";
+	public final static String SK_IVA_CREDITO = "IVA_CREDITO";
+	public final static String SK_IVA_DEBITO = "IVA_DEBITO";
+	public final static String SK_BANCA = "BANCA";
 
 	public Configurazione_cnrBulk() {
 	super();
